@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container-fluid{
+    padding: 15px 150px;
+}
+
+
+.navbar{
+    width: 100%;
+    background-color: #7749f8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a, .navbar h4{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar .login-btn{
+    appearance: none;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .sinup-title{
+    background-color: #fff;
+    padding: 25px 150px;
+    color: #343A40;
+}
+
+.navbar{
+    width: 100%;
+    background-color: #7749f8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a, .navbar h4{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar .login-btn{
+    appearance: none;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .sinup-title{
+    background-color: #fff;
+    padding: 25px 150px;
+    color: #343A40;
+}
