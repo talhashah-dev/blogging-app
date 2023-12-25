@@ -1,0 +1,47 @@
+
+
+/* media query for mobile screen */
+
+@media screen and (min-width:320px) and (max-width:1024px) {
+    
+    .container-fluid{
+        padding: 10px 20px ;
+    }
+
+    .post-title{
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 2px;
+    }
+
+    .page-title{
+        padding: 10px 20px !important;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .page-title{
+        width: 100%;
+    }
+
+    .sidebar{
+        visibility: hidden;
+    }
+
+    .box{
+        width: 70%;
+        height: auto;
+        top: 30px;
+        left: 15%;
+        right: 15%;
+        bottom: 0px;
+        background-color: #fff;
+        position: relative;
+        box-shadow: 0px 4px 10px 0px #0000001F;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogging App</title>
+    <link rel="stylesheet" href="assests/css/index.css" />
+    <link rel="stylesheet" href="assests/css/main.css" />
+    <link rel="stylesheet" href="assests/css/mobile.css" />
+    <link rel="stylesheet" href="assests/css/author-page.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header>
+      <!-- navbar start -->
+      <nav class="navbar container-fluid">
+        <a href="index.html"><h4>Blogging App</h4></a>
+        <a class="login-btn" href="login.html">Login</a>
+      </nav>
+      <!-- navbar end -->
+      <div class="container-fluid page-title">
+        <!-- greeting for users -->
+        <a href="index.html"> &lt; Back to all Blogs</a>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- sidebar start -->
+    <div class="sidebar">
+      <div class="author-info">
+        <a href="mailto:elon@openai.com">elon@openai.com</a>
+        <a href="#" class="author-name">Elon Musk</a>
+      </div>
+      <div>
+        <img src="assests/images/writer-dp.jpg" />
+      </div>
+    </div>
+    <!-- sidebar end -->
+
+    <!-- main start -->
+    <main class="container-fluid">
+      <h2>All from <span>Elon Musk</span></h2>
+
+      <section class="post-container">
+        <div class="post-card">
+          <div class="post-info">
+            <img
+              src="assests/images/writer-dp.jpg"
+              alt="Elon Musk"
+              class="author-dp"
+            />
+            <div>
+              <h3 class="post-title">Introducing Whisper</h3>
+              <div class="post-author">
+                <span>Elon Musk</span> - <span>Aug 17th, 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-content">
+            Whisper is an automatic speech recognition (ASR) system trained on
+            680,000 hours of multilingual and multitask supervised data
+            collected from the web. We show that the use of such a large and
+            diverse dataset leads to improved robustness to accents, background
+            noise and technical language. Moreover, it enables transcription in
+            multiple languages, as well as translation from those languages into
+            English. We are open-sourcing models and inference code to serve as
+            a foundation for building useful applications and for further
+            research on robust speech processing.
+          </div>
+
+        </div>
+      </section>
+
+      <section class="post-container">
+        <div class="post-card">
+          <div class="post-info">
+            <img
+              src="assests/images/writer-dp.jpg"
+              alt="Elon Musk"
+              class="author-dp"
+            />
+            <div>
+              <h3 class="post-title">Introducing Whisper</h3>
+              <div class="post-author">
+                <span>Elon Musk</span> - <span>Aug 17th, 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-content">
+            We've trained a model called ChatGPT which interacts in a
+            conversational way. The dialogue format makes it possible for
+            ChatGPT to answer followup questions, admit its mistakes, challenge
+            incorrect premises, and reject inappropriate requests. <br>
+            We've trained a model called ChatGPT which interacts in a conversational way. The
+            dialogue format makes it possible for ChatGPT to answer followup
+            questions, admit its mistakes, challenge incorrect premises, and
+            reject inappropriate requests.
+            <br><br><br>
+            Methods: We trained this model using
+            Reinforcement Learning from Human Feedback (RLHF), using the same
+            methods as <a href="https://openai.com/research/instruction-following">InstructGPT</a>, but with slight differences in the data
+            collection setup. We trained an initial model using supervised
+            fine-tuning: human AI trainers provided conversations in which they
+            played both sides—the user and an AI assistant. We gave the trainers
+            access to model-written suggestions to help them compose their
+            responses. We mixed this new dialogue dataset with the InstructGPT
+            dataset, which we transformed into a dialogue format. <br>
+            To create a reward model for reinforcement learning, we needed to collect
+            comparison data, which consisted of two or more model responses
+            ranked by quality. To collect this data, we took conversations that
+            AI trainers had with the chatbot. We randomly selected a
+            model-written message, sampled several alternative completions, and
+            had AI trainers rank them. Using these reward models, we can
+            fine-tune the model using <a href="https://openai.com/research/openai-baselines-ppo">Proximal Policy Optimization</a>. We performed
+            several iterations of this process.
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <!-- main end -->
+
+    <!-- footer start -->
+
+    <footer class="container-fluid"></footer>
+
+    <!-- footer end -->
+  </body>
+</html>

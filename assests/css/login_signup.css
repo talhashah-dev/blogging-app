@@ -1,8 +1,9 @@
 
 
-.signup-box{
+
+.box{
     width: 456px;
-    height: 449px;
+    height: auto;
     top: 287px;
     left: 492px;
     background-color: #fff;
@@ -12,15 +13,16 @@
     border-radius: 5px;
 }
 
-.signup-form{
+.form{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    gap: 18px;
 }
 
-.signup-form input{
+.form input{
     width: 240px;
     height: 30px;
     font-size: 16px;
@@ -28,5 +30,17 @@
     border: 1px solid rgba(128, 128, 128, 0.562);
     border-radius: 5px;
     outline: none;
-    padding: 15px 10px;
+    padding: 9px 16px;
+}
+
+.form button{
+    width: 75px;
+    height: 38px;
+    border-radius: 6px;
+    background-color: #7749F8;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
 }
