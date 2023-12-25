@@ -1,10 +1,12 @@
 
 
+main h2{
+    color:#152536;
+}
+
 /* post container */
 .post-container{
     max-width: 880px;
-
-
 }
 
 
@@ -65,12 +67,19 @@
     line-height: 23px;
     font-size: 16px;
     font-weight: 400;
-    width: 833px !important;
+    /* width: 833px; */
     padding-right: 24px;
     color: #6C757D;
-    font-weight: lighter;
 }
 
-.post-content > a{
-    color: #6C757D;
+.post-content a{
+    color: #6C757D; /* links inside the text */
+}
+
+.post-content + a{
+    color: #7749F8;
+    text-decoration: none;
+}
+.post-content + a:hover{
+    text-decoration: underline;
 }

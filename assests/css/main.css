@@ -39,7 +39,7 @@ body{
     font-size: 14px;
 }
 
-header .page-title{
+.page-title{
     background-color: #fff;
     padding: 25px 150px;
     color: #343a40;
@@ -52,21 +52,102 @@ header .page-title{
     justify-content: space-between;
 }
 
-.navbar a, .navbar h4{
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-
 
 footer{
     width: 100%;
     height: 200px;
     background-color: #7749F8;
+    padding: 40px 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+footer .follow{
+    width: 60%;
+    height: 80%;
+    border-right: 1px solid #fff;
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
+
+footer .follow-links{
+    display: flex;
+    gap: 12px;
+}
+
+footer .follow-links a{
+    color: #fff;
+    font-size: 34px;
+}
+
+
+
+footer .follow span,
+footer .news-letter span{
+    color: #fff;
+    font-size: 28px;
+    font-weight: lighter;
+}
+
+footer .news-letter{
+    height: 80%;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer .news-letter .email{
+    width: 280px;
+    border-bottom: 2px solid #fff;
+}
+
+footer .news-letter input{
+    background: none;
+    border: none;
+    outline: none;
+    color: #f3f3f3;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+footer .news-letter input::placeholder{
+    color: #f3f3f3;
+}
+
+footer .news-letter button{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #f3f3f3;
+    cursor: pointer;
+}
+
+footer .news-letter button:active{
+    color: #fff;
+}
+
+footer .news-letter a{
+    color: #f3f3f3;
+    font-weight: lighter;
+}
+
+.goTop{
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    
+}
+
+.goTop a{
+    color: #7749F8;
+    text-decoration: none;
+}
+
+
 
 
