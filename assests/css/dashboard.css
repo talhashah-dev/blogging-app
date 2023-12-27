@@ -26,6 +26,12 @@
     font-size: 18px;
 }
 
+.posting-blog textarea{
+    max-width: 100%;
+    min-width: 100%;
+}
+
+
 .posting-blog button{
     background: #7749F8;
     border: none;

@@ -30,6 +30,11 @@ body{
     font-weight: 500;
 }
 
+.navbar div{
+    display: flex;
+    gap: 15px;
+}
+
 .navbar .login-btn{
     appearance: none;
     border: none;

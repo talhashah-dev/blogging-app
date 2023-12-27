@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="assests/css/login_signup.css">
     <link rel="stylesheet" href="assests/css/main.css">
     <link rel="stylesheet" href="assests/css/mobile.css">
-     <!-- font awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
     
     <header>
@@ -28,16 +28,16 @@
         <form action="#" class="form">
             <input type="text" id="firstName" placeholder="First Name">
             <input type="text" id="lastName" placeholder="Last Name">
-            <input type="email" id="email" placeholder="Email">
+            <input type="email" id="email" placeholder="Email" autocomplete="off">
             <input type="password" id="password" placeholder="Password">
             <input type="password" id="re-password" placeholder="Repeat Password">
 
-            <button type="submit" id="submit">Signup</button>
+            <button type="submit" id="submit" onclick="signupCall()">Signup</button>
         </form>
-
     </section>
 
     
-
+<!-- javascript -->
+<script src="assests/js/firebase.js"></script>
 </body>
 </html>
