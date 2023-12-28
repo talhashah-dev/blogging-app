@@ -33,6 +33,21 @@
     padding: 9px 16px;
 }
 
+form input:focus{
+    border-color: #7749F8;
+    -webkit-box-shadow:0 0 6px #7749F8;
+    box-shadow:0 0 6px #7749F8;
+}
+
+.form a{
+    text-decoration: none;
+    color: #7749F8;
+}
+
+.form a:hover{
+    text-decoration: underline;
+}
+
 .form button{
     width: 75px;
     height: 38px;

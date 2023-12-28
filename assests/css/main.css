@@ -24,7 +24,8 @@ body{
     justify-content: space-between;
 }
 
-.navbar a, .navbar h4{
+.navbar a, 
+.navbar h4{
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -35,14 +36,11 @@ body{
     gap: 15px;
 }
 
-.navbar .login-btn{
-    appearance: none;
-    border: none;
-    background: none;
-    color: #fff;
+
+.navbar #logout{
     cursor: pointer;
-    font-size: 14px;
 }
+
 
 .page-title{
     background-color: #fff;
@@ -58,6 +56,92 @@ body{
 }
 
 
+main h2{
+    color:#152536;
+}
+
+/* post container */
+.post-container{
+    max-width: 880px;
+}
+
+
+.post-container .post-card:nth-child(1){
+    margin-top: 20px;
+}
+
+.post-container:last-child{
+    margin-bottom: 50px;
+}
+
+
+/* post card */
+.post-card{
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #c9cbcc;
+    padding: 24px;
+}
+
+/* post info */
+.post-info{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* post title */
+.post-title{
+    width: 324px;
+    height: auto;
+    font-size: 24px;
+    color: #212529 !important;
+    font-weight: light;
+}
+
+/* post author */
+
+.post-author{
+    color: #474c52;
+    font-size: 16px;
+}
+
+/* author profile */
+.author-dp{
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+}
+
+/* post content */
+.post-content{
+    margin: 20px 0;
+    line-height: 23px;
+    font-size: 16px;
+    font-weight: 400;
+    /* width: 833px; */
+    padding-right: 24px;
+    color: #6C757D;
+}
+
+.post-content a{
+    color: #6C757D; /* links inside the text */
+}
+
+.post-content + a{
+    color: #7749F8;
+    text-decoration: none;
+}
+.post-content + a:hover{
+    text-decoration: underline;
+}
+
+
+
 footer{
     width: 100%;
     height: 200px;
@@ -69,7 +153,7 @@ footer{
 }
 
 footer .follow{
-    width: 60%;
+    width: 40%;
     height: 80%;
     border-right: 1px solid #fff;
     margin-right: 20px;
@@ -139,6 +223,22 @@ footer .news-letter button:active{
 footer .news-letter a{
     color: #f3f3f3;
     font-weight: lighter;
+}
+
+footer .credit{
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+footer .credit a{
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .credit a:hover{
+    text-decoration: underline;
 }
 
 .goTop{
