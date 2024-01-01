@@ -141,6 +141,12 @@ main h2{
 }
 
 
+/* form stylings */
+.form button:active{
+    scale: 0.98;
+    opacity: 0.9;
+}
+
 
 footer{
     width: 100%;

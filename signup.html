@@ -24,16 +24,63 @@
         <form class="form">
             <input type="text" id="firstName" placeholder="First Name" autocomplete="off">
             <input type="text" id="lastName" placeholder="Last Name" autocomplete="off">
-            <input type="email" id="email" placeholder="Email" autocomplete="off" autocomplete="off">
+            <input type="email" id="email" placeholder="Email" autocomplete="off">
             <input type="password" id="password" placeholder="Password">
-            <input type="password" id="re-password" placeholder="Repeat Password">
+            <input type="password" id="re-password" placeholder="Repeat Password" >
 
             <button id="signup">Signup</button>
             <a href="login.html">Already have an account?</a>
         </form>
     </section>
     
+    <!-- firebase -->
+    <script type="module">
 
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyDjWgkEDZI6dPWbai_OJ6KLKI9A8l83m4I",
+        authDomain: "blogapp-c7488.firebaseapp.com",
+        projectId: "blogapp-c7488",
+        storageBucket: "blogapp-c7488.appspot.com",
+        messagingSenderId: "889483622671",
+        appId: "1:889483622671:web:8eef199be7330f2418667a",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+
+        document.getElementById("signup").addEventListener("click", function() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let re_password = document.getElementById("re-password").value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            alert("Signup successfully!");
+            location.replace("dashboard.html")
+            })
+            .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            alert(error);
+            });
+        });
+    
+
+    </script>
 
     <!-- javascript -->
     <script type="module" src="assests/js/firebase.js"></script>
