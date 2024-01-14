@@ -16,7 +16,7 @@
 
 .posting-blog input,
 .posting-blog textarea{
-    width: 100%;
+    width: 100% !important; 
     background: none;
     outline: none;
     border: 1px solid #c9cbcc;
@@ -24,6 +24,13 @@
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.posting-blog input::placeholder,
+.posting-blog textarea::placeholder{
+    color: #999;
 }
 
 .posting-blog textarea{
@@ -56,6 +63,5 @@
     outline: none;
     color: #7749F8;
     font-size: 18px;
-    margin-right: 5px;
     cursor: pointer;
 }

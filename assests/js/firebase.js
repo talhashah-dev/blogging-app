@@ -1,8 +1,5 @@
 const signupForm = document.getElementById("signup");
 const loginForm = document.getElementById("login");
-// const email = document.getElementById("email").value;
-// const password = document.getElementById("password").value;
-const logoutBtn = document.getElementById("logout");
 const formSubmitStop = document.querySelector(".form");
 
 if (formSubmitStop) {
@@ -11,13 +8,8 @@ if (formSubmitStop) {
   });
 }
 
-// onAuthStateChanged(auth, (user)=>{
-//     if(!user){
-//         location.replace("index.html");
-//     }
-// });
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+
 import {
   getAuth,
   onAuthStateChanged,
@@ -25,6 +17,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
 import {
   getDatabase,
   set,
@@ -45,82 +38,104 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
 
+// onAuthStateChanged(auth, (user) => {
+//   if (!user) {
+//     location.replace("index.html");
+//   }
+// });
+
+
+
 //----- Signup code start
-// if (signupForm) {
-//   signupForm.addEventListener("click", function () {
-//     createUserWithEmailAndPassword(auth, email, password)
-//       .then((userCredential) => {
-//         const user = userCredential.user;
-//         console.log(user);
-//         alert("Signup successfully!");
-//         location.replace("dashboard.html");
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.log(errorMessage);
-//         alert(error);
-//       });
-//   });
-// }
+if (signupForm) {
+  document.getElementById("signup").addEventListener("click", function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        alert("Signup successfully!");
+        location.replace("dashboard.html");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(error);
+      });
+  });
+}
 //----- End
 
 //----- Login code start
-// if (loginForm) {
-//   loginForm.addEventListener("click", function () {
-//     signInWithEmailAndPassword(auth, email, password)
-//       .then((userCredential) => {
-//         // Signed in
-//         const user = userCredential.user;
-//         console.log(user);
-//         alert(user.email + " Login successfully!!!");
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.log(errorMessage);
-//         // alert(errorMessage);
-//       });
-//   });
-// }
+if (loginForm) {
+  document.getElementById("login").addEventListener("click", function () {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        alert(user.email + " Login successfully!!!");
+        location.replace("dashboard.html");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+      });
+  });
+}
 //----- End
 
 //----- Logout code start
-// logoutBtn.addEventListener("click", function () {
-//   signOut(auth)
-//     .then(() => {
-//       console.log("Sign-out successful.");
-//       alert("Sign-out successful.");
-//       location.replace("index.html");
-//     })
-//     .catch((error) => {
-//       console.log("An error happened" + error);
-//     });
-// });
-// if (logoutBtn) {
-// }
+const logoutBtn = document.getElementById("logout");
+logoutBtn.addEventListener("click", function () {
+  signOut(auth)
+    .then(() => {
+      console.log("Sign-out successful.");
+      alert("Sign-out successful.");
+      location.replace("index.html");
+    })
+    .catch((error) => {
+      console.log("An error happened" + error);
+    });
+});
 //----- End
 
 //----- Posting Blog Start
 
-const addPostBtn = document.getElementById("postBtn");
+const postTitle = document.getElementById("postTitle").value;
+const postText = document.getElementById("postText").value;
 const notify = document.querySelector(".notify");
+const postId = new Date().getTime();
+document.getElementById("posting-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 
-function addPost() {
-  const postTitle = document.getElementById("postTitle").value;
-  const postText = document.getElementById("postText").value;
-  const postId = new Date().getTime() ;
+document.getElementById("postBtn").addEventListener("click", function () {
+  
+  if(postText != "" && postTitle != ""){
+    set(ref(db, "post/" + postId), {
+      postTitle: postTitle,
+      postText: postText,
+    });
+    document.getElementById("postTitle").value = "";
+    document.getElementById("postText").value = "";
+    // notify.innerText = "Post Added";
+    alert("Blog Posted")
+  } else{
+    alert("Fill the Form Properly!")
+  };
 
-  set(ref(db, "post/" + postId), {
-    postTitle: postTitle,
-    postText: postText,
-  });
+  
 
-  notify.innerHTML = "Post Added";
 
-  document.getElementById("postTitle").value="";
-  document.getElementById("postText").value="";
 
-}
 
-addPostBtn.addEventListener("click", addPost());
+
+});

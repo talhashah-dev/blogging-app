@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa;
@@ -37,7 +41,7 @@ body{
 }
 
 
-.navbar #logout{
+.navbar #logoutBtn{
     cursor: pointer;
 }
 
@@ -142,9 +146,13 @@ main h2{
 
 
 /* form stylings */
-.form button:active{
+#mainForm button:active{
     scale: 0.98;
     opacity: 0.9;
+}
+
+#logoutBtn{
+    display: none;
 }
 
 
@@ -248,17 +256,16 @@ footer .credit a:hover{
 }
 
 .goTop{
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .goTop a{
     color: #7749F8;
     text-decoration: none;
 }
-
-
-
 
