@@ -13,4 +13,17 @@ if (greetings) {
     greetings.innerHTML = "Good Night Reader!";
   }
 }
-  
+
+// Password show/hide toggle
+const togglePassword = document.getElementById("showPass");
+if (togglePassword) {
+  const password = document.getElementById("passwordInput");
+
+  togglePassword.addEventListener("click", function () {
+    const type =
+      password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+
+    this.classList.toggle("fa-eye");
+  });
+}

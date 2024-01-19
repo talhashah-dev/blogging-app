@@ -18,11 +18,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 
-import {
-  getDatabase,
-  set,
-  ref,
-} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+import { getDatabase, ref, child, get, set, update, remove } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDjWgkEDZI6dPWbai_OJ6KLKI9A8l83m4I",
@@ -83,9 +79,7 @@ if (loginForm) {
         location.replace("dashboard.html");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
+        console.log(error.message);
         alert(errorMessage);
       });
   });
@@ -94,48 +88,19 @@ if (loginForm) {
 
 //----- Logout code start
 const logoutBtn = document.getElementById("logout");
-logoutBtn.addEventListener("click", function () {
-  signOut(auth)
-    .then(() => {
-      console.log("Sign-out successful.");
-      alert("Sign-out successful.");
-      location.replace("index.html");
-    })
-    .catch((error) => {
-      console.log("An error happened" + error);
-    });
-});
+if(logoutBtn){
+  logoutBtn.addEventListener("click", function () {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign-out successful.");
+        alert("Sign-out successful.");
+        location.replace("index.html");
+      })
+      .catch((error) => {
+        console.log("An error happened" + error);
+      });
+  });
+}
+
 //----- End
 
-//----- Posting Blog Start
-
-const postTitle = document.getElementById("postTitle").value;
-const postText = document.getElementById("postText").value;
-const notify = document.querySelector(".notify");
-const postId = new Date().getTime();
-document.getElementById("posting-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-});
-
-document.getElementById("postBtn").addEventListener("click", function () {
-  
-  if(postText != "" && postTitle != ""){
-    set(ref(db, "post/" + postId), {
-      postTitle: postTitle,
-      postText: postText,
-    });
-    document.getElementById("postTitle").value = "";
-    document.getElementById("postText").value = "";
-    // notify.innerText = "Post Added";
-    alert("Blog Posted")
-  } else{
-    alert("Fill the Form Properly!")
-  };
-
-  
-
-
-
-
-
-});

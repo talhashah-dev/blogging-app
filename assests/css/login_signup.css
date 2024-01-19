@@ -33,6 +33,17 @@
     padding: 9px 16px;
 }
 
+#mainForm #showPass{
+    height: auto !important;
+    width: auto !important;
+    padding: 10px;
+    appearance: none;
+    margin-top: -50px;
+    margin-right: -210px;
+    font-size: 14px;
+    color: gray;
+}
+
 form input:focus{
     border-color: #7749F8;
     -webkit-box-shadow:0 0 6px #7749F8;
