@@ -79,14 +79,14 @@
                   lastName: docSnap.data().lastName
                  }))
                  localStorage.setItem("user-creds", JSON.stringify(userCredential));
-                 window.location.href = "index.html";
+                //  window.location.href = "index.html";
               }
   
               swal("Login Successful!" , "", "success");
               // console.log(userCredential);
               email.value = "";
               password.value = "";
-              window.location.href = "dashboard.html";
+              // window.location.href = "dashboard.html";
             })
             .catch((e) => {
               if(e.code === "auth/invalid-email"){
@@ -94,7 +94,7 @@
               }else if(e.code === "auth/missing-password"){
                   swal("Password is missing!" , "", "error");
               }else if(e.code === "auth/too-many-requests"){
-                  swal("Account temporarily disabled due to multiple failed login attempts. Reset password or try again later." , "", "error");
+                  swal("Account temporarily disabled due to multiple failed login attempts." , "", "error");
                   resetPass.style.display = "block"
               }else{
                   swal("Invalid Credentials!" , "", "error");

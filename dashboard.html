@@ -44,8 +44,8 @@
             type="text"
             placeholder="Post Title"
             title="Write a title for your post"
-            maxlength="50"
             minlength="5"
+            maxlength="50"
             id="postTitle"
             autocomplete="off"
           />
@@ -79,20 +79,12 @@
           </div>
 
           <div class="post-content">
-            Whisper is an automatic speech recognition (ASR) system trained on
-            680,000 hours of multilingual and multitask supervised data
-            collected from the web. We show that the use of such a large and
-            diverse dataset leads to improved robustness to accents, background
-            noise and technical language. Moreover, it enables transcription in
-            multiple languages, as well as translation from those languages into
-            English. We are open-sourcing models and inference code to serve as
-            a foundation for building useful applications and for further
-            research on robust speech processing.
+            
           </div>
 
           <div class="content-edit">
-            <button>Delete</button>
-            <button>Edit</button>
+            <button id="delBtn" type="button">Delete</button>
+            <!-- <button id="delBtn" type="button">Edit</button> -->
           </div>
         </div>
       </section>
@@ -112,6 +104,10 @@
         ref,
         set,
         onValue,
+        remove,
+        // onValue,
+        // update,
+        // remove,
       } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
       const firebaseConfig = {
@@ -131,14 +127,15 @@
       let userInfo = JSON.parse(localStorage.getItem("user-info"));
       let userName = document.getElementById("userName");
       let logoutButton = document.getElementById("logoutBtn");
+      let deleteButton = document.getElementById("delBtn");
 
       // ...
 
       // Publishing Posts
-      const postIdInput = document.getElementById("postId");
       const postTitleInput = document.getElementById("postTitle");
       const postTextInput = document.getElementById("postText");
       const publishButton = document.getElementById("pubBtn");
+
       const date = new Date();
 
       const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -159,30 +156,25 @@
 
       const finalFormattedDate = formattedDate.replace(/\d+/, dayWithSuffix);
 
-      function addPost() {
+      function addPost(e) {
+
+        e.preventDefault();
+        const postIdInput = Date.now();
         const postTitle = postTitleInput.value.trim();
         const postText = postTextInput.value.trim();
 
-        document
-          .getElementById("posting-form")
-          .addEventListener("submit", (e) => {
-            e.preventDefault();
-          });
-
-        if (!postTitle || !postText) {
+        if (postTitleInput.value === "" || postTextInput.value === "") {
           swal("Please fill in all fields!", "", "error");
           return;
         }
 
-        set(
-          ref(
-            db,
-            `Posts/${userInfo.firstName}${userInfo.lastName}-${finalFormattedDate}`
-          ),
-          {
-            postInfo: { PostTitle: postTitle, PostText: postText },
-          }
-        )
+        set(ref(db, `Posts/${userInfo.firstName}-${postIdInput}`), {
+          postInfo: {
+            PostTitle: postTitleInput.value,
+            PostText: postTextInput.value,
+            PostDate: finalFormattedDate
+          },
+        })
           .then(() => {
             swal("Blog Posted", "", "success");
             postTitleInput.value = "";
@@ -197,7 +189,7 @@
       publishButton.addEventListener("click", addPost);
       // ...
 
-      // Function to create a post card element
+      // // Function to create a post card element
       function createPostCard(post) {
         const postCard = document.createElement("div");
         postCard.className = "post-card";
@@ -244,10 +236,14 @@
         // Create delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("id", "delBtn");
+        deleteButton.setAttribute("type", "button");
 
         // Create edit button
         const editButton = document.createElement("button");
         editButton.textContent = "Edit";
+        editButton.setAttribute("id", "editBtn");
+        editButton.setAttribute("type", "button");
 
         // Append buttons to content edit section
         contentEdit.appendChild(deleteButton);
@@ -288,13 +284,26 @@
             posts.push(post);
           });
 
-          // Prepend new posts to the existing container
           prependPostsToContainer(postContainer, posts);
         });
       }
 
-      // Call the function to initially load and display posts
       displayPostsFromFirebase();
+
+      //------- Funtion to Delete Posts from firebase
+      function deletePost() {
+        remove(ref(db, "Posts"))
+          .then(() => {
+            swal("Post Deleted", "", "success");
+          })
+          .catch((error) => {
+            console.error(error.code);
+            console.error(error.message);
+          });
+        console.log("Dele");
+      }
+
+      deleteButton.addEventListener("click", deletePost);
 
       // Signout
       let signOut = () => {
@@ -303,6 +312,7 @@
         window.location.href = "login.html";
       };
 
+      // Check if user is Logged in
       let ifUserLogin = () => {
         if (!localStorage.getItem("user-creds")) {
           window.location.href = "login.html";
