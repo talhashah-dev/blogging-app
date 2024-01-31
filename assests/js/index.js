@@ -66,7 +66,7 @@ function createPostCard(post) {
 
   // Create author DP element
   const authorDp = document.createElement("img");
-  authorDp.src = "assests/images/writer-dp.jpg";
+  authorDp.src = "assests/images/writer-dp.png";
   authorDp.className = "author-dp";
 
   // Create title and author info section
