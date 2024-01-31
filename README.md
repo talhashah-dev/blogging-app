@@ -1,6 +1,6 @@
 # Blogging App
 
-<a href="https://talhashah-dev.github.io/blogging-app/">
+<a href="https://talhashah-dev.github.io/blogging-app/" target="_blank">
     <img src="./assests/images/screen-laptop.png"/>
 </a>
 
