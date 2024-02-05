@@ -5,8 +5,11 @@ let logoutButton = document.getElementById("logoutBtn");
 let loginButton = document.getElementById("loginBtn");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { auth, onAuthStateChanged, signOut, collection, doc, getDoc, getDocs, db, query, where, onSnapshot, orderBy } from "./firebase-configs.js"
-
+import {
+  getDatabase,
+  ref,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDjWgkEDZI6dPWbai_OJ6KLKI9A8l83m4I",
@@ -23,14 +26,14 @@ const db = getDatabase(app);
 const date = new Date();
 
 let ifUserLogin = () => {
-    if (!localStorage.getItem("user-creds")) {
-      // window.location.href = "../screen/login.html"
-      logoutButton.style.display = "none";
-      loginButton.style.display = "block";
-    } else {
-      logoutButton.style.display = "block";
-      loginButton.style.display = "none";
-    }
+  if (!localStorage.getItem("user-creds")) {
+    // window.location.href = "../screen/login.html"
+    logoutButton.style.display = "none";
+    loginButton.style.display = "block";
+  } else {
+    logoutButton.style.display = "block";
+    loginButton.style.display = "none";
+  }
 };
 
 const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -141,7 +144,6 @@ let signOut = () => {
   localStorage.removeItem("user-info");
   window.location.href = "../index.html";
 };
-
 
 window.addEventListener("load", ifUserLogin);
 logoutButton.addEventListener("click", signOut);
