@@ -5,12 +5,8 @@ let logoutButton = document.getElementById("logoutBtn");
 let loginButton = document.getElementById("loginBtn");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { auth, onAuthStateChanged, signOut, collection, doc, getDoc, getDocs, db, query, where, onSnapshot, orderBy } from "./firebase-configs.js"
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDjWgkEDZI6dPWbai_OJ6KLKI9A8l83m4I",
@@ -23,12 +19,12 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
+const db = getDatabase(app);
 const date = new Date();
 
 let ifUserLogin = () => {
     if (!localStorage.getItem("user-creds")) {
-      // window.location.href = "login.html"
+      // window.location.href = "../screen/login.html"
       logoutButton.style.display = "none";
       loginButton.style.display = "block";
     } else {
@@ -143,7 +139,7 @@ displayPostsFromFirebase();
 let signOut = () => {
   localStorage.removeItem("user-creds");
   localStorage.removeItem("user-info");
-  window.location.href = "login.html";
+  window.location.href = "../index.html";
 };
 
 

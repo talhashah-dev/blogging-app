@@ -27,3 +27,12 @@ if (togglePassword) {
     this.classList.toggle("fa-eye");
   });
 }
+
+// Pre Loader
+let loader = document.getElementById("center");
+let page = document.getElementById("page");
+
+window.addEventListener("load" , function(){
+  loader.style.display = "none"
+  page.style.display = "block";
+})

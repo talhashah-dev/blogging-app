@@ -22,6 +22,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
+// Check if user is Logged in
+
+let ifUserLogin = () => {
+  if (!localStorage.getItem("user-creds")) {
+    location.href = "../screen/login.html"
+  } else {
+    logoutButton.style.display = "block";
+    userName.innerText = `${userInfo.firstName + " " + userInfo.lastName}`;
+  }
+};
+window.addEventListener("load", ifUserLogin);
+
+
 // Function to fetch all posts
 async function getAllPosts() {
   const postsRef = ref(db, "Posts");
@@ -35,8 +48,6 @@ async function getAllPosts() {
 
 }
 
-const a = getAllPosts();
-console.log(a);
 
 let userCreds = JSON.parse(localStorage.getItem("user-creds"));
 let userInfo = JSON.parse(localStorage.getItem("user-info"));
@@ -50,8 +61,7 @@ let deleteButton = document.querySelector(".delBtn");
 const postTitleInput = document.getElementById("postTitle");
 const postTextInput = document.getElementById("postText");
 const publishButton = document.getElementById("pubBtn");
-// const fbPostId = ref(db, "Posts");
-// console.log(fbPostId)
+
 
 const date = new Date();
 
@@ -241,15 +251,5 @@ let signOut = () => {
   window.location.href = "login.html";
 };
 
-// Check if user is Logged in
-let ifUserLogin = () => {
-  if (!localStorage.getItem("user-creds")) {
-    window.location.href = "login.html";
-  } else {
-    logoutButton.style.display = "block";
-    userName.innerText = `${userInfo.firstName + " " + userInfo.lastName}`;
-  }
-};
 
-window.addEventListener("load", ifUserLogin);
 logoutButton.addEventListener("click", signOut);

@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blogging App</title>
-    <link rel="stylesheet" href="assests/css/main.css" />
-    <link rel="stylesheet" href="assests/css/responsive.css" />
+    <link rel="stylesheet" href="../assests/css/main.css" />
+    <link rel="stylesheet" href="../assests/css/responsive.css" />
+    <link rel="stylesheet" href="../assests/css/author-page.css" />
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -16,7 +17,6 @@
     />
   </head>
   <body>
-    <!-- Page Loader -->
     <div id="center">
       <div class="loader"></div>
     </div>
@@ -26,39 +26,49 @@
       <header>
         <!-- navbar start -->
         <nav class="navbar container-fluid">
-          <a href="/"><h1>Blogging App</h1></a>
+          <a href="../index.html"><h1>Blogging App</h1></a>
           <div>
-            <a class="login_signup" href="./screen/dashboard.html">Dashboard</a>
-            <a class="login_signup" id="userName"></a>
-            <a class="login_signup" id="loginBtn" href="./screen/login.html"
-              >Login</a
-            >
+            <a class="login_signup" href="dashboard.html">Dashboard</a>
             <a class="login_signup" id="logoutBtn">Logout</a>
+            <a class="login_signup" id="loginBtn" href="login.html">Login</a>
           </div>
         </nav>
         <!-- navbar end -->
         <div class="container-fluid page-title">
           <!-- greeting for users -->
-          <h1 class="greetings" id="greetings">Welcome Readers!</h1>
+          <a href="../index.html"> &lt; Back to all Blogs</a>
         </div>
       </header>
       <!-- header end -->
 
+      <!-- sidebar start -->
+      <div class="sidebar">
+        <div class="author-info">
+          <a href="mailto:elon@openai.com">elon@openai.com</a>
+          <a href="#" class="author-name">Elon Musk</a>
+        </div>
+        <div>
+          <img src="../assests/images/writer-dp.png" />
+        </div>
+      </div>
+      <!-- sidebar end -->
+
       <!-- main start -->
       <main class="container-fluid">
-        <h2>All Blogs</h2>
+        <h2>All from <span>Elon Musk</span></h2>
+
         <section class="post-container">
           <div class="post-card">
             <div class="post-info">
               <img
-                src="assests/images/writer-dp.png"
+                src="../assests/images/writer-dp.png"
                 alt="Elon Musk"
                 class="author-dp"
               />
               <div>
                 <h3 class="post-title">Introducing Whisper</h3>
                 <div class="post-author">
-                  <span>Elon Musk - August 17th, 2023</span>
+                  <span>Elon Musk</span> - <span>Aug 17th, 2023</span>
                 </div>
               </div>
             </div>
@@ -74,18 +84,45 @@
               inference code to serve as a foundation for building useful
               applications and for further research on robust speech processing.
             </div>
-
-            <a href="./screen/author-page.html">See all from this user</a>
           </div>
         </section>
       </main>
     </div>
-
     <!-- main end -->
 
-    <!-- javascript -->
-    <script src="assests/js/main.js" type="module"></script>
-    <script src="assests/js/index.js" type="module"></script>
+    <script src="../assests/js/main.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      let userCreds = JSON.parse(localStorage.getItem("user-creds"));
+      let userInfo = JSON.parse(localStorage.getItem("user-info"));
+
+      let logoutButton = document.getElementById("logoutBtn");
+      let loginButton = document.getElementById("loginBtn");
+
+      let signOut = () => {
+        localStorage.removeItem("user-creds");
+        localStorage.removeItem("user-info");
+        window.location.href = "index.html";
+      };
+
+      let ifUserLogin = () => {
+        if (!localStorage.getItem("user-creds")) {
+          if (logoutButton) {
+            logoutButton.style.display = "none";
+            loginButton.style.display = "block";
+          }
+        } else {
+          if (loginButton) {
+            loginButton.style.display = "none";
+            logoutButton.style.display = "block";
+          }
+        }
+      };
+
+      window.addEventListener("load", ifUserLogin);
+      if (logoutButton) {
+        logoutButton.addEventListener("click", signOut);
+      }
+    </script>
   </body>
 </html>

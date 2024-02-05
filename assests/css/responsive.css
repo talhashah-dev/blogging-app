@@ -50,41 +50,18 @@
         margin-bottom: 20px;
     }
 
+    .loader {
+        border: 14px solid #d4d4d4; 
+        border-top: 14px solid #7749F8; 
+        width: 100px;
+        height: 100px;
+    }
+
     .goTop{
         display: none !important;
     }
    
-    footer{
-        height: 100px;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    footer .follow{
-        width: auto;
-        height: auto;
-        border-right: none;
-        margin: 0 auto;
-    }
-
-    footer .follow span{
-        font-size: 16px;
-    }
-
-    .news-letter{
-        display: none !important;
-    }
-
-    .follow-links i{
-        font-size: 20px;
-    }
-
-    footer .credit{
-        margin-top: -5px;
-    }
+    
 }
 
 @media screen and (min-width:426px) and (max-width:1024px) {
@@ -102,10 +79,6 @@
         position: absolute;
         margin: 0 auto;
         margin-top: 130px;
-    }
-
-    footer .follow {
-        width: 30%;
     }
 
     .sidebar{
