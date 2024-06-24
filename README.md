@@ -1,7 +1,7 @@
 # Blogging App
 
 <a href="https://talhashah-dev.github.io/blogging-app/" target="_blank">
-    <img src="./assests/images/screen-laptop.png"/>
+    <img src="./assets/images/screen-laptop.png"/>
 </a>
 
 A feature rich blogging web application that allows users to create and publish their posts. The application uses Firebase as the backend database to store user-generated content.
