@@ -27,7 +27,7 @@ const date = new Date();
 
 let ifUserLogin = () => {
   if (!localStorage.getItem("user-creds")) {
-    // window.location.href = "../screen/login.html"
+    window.location.href = "../screen/login.html"
     logoutButton.style.display = "none";
     loginButton.style.display = "block";
   } else {
@@ -96,7 +96,7 @@ function createPostCard(post) {
 
   // Create content edit section
   const otherPost = document.createElement("a");
-  otherPost.setAttribute("href", "author-page.html");
+  otherPost.setAttribute("href", "./screen/author-page.html");
   otherPost.innerText = "See all from this user";
 
   // Append elements to post card

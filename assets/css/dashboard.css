@@ -28,6 +28,12 @@
     margin-bottom: 10px;
 }
 
+#userName,
+.posting-blog input,
+.posting-blog textarea {
+    text-transform: capitalize;
+}
+
 .posting-blog input:focus,
 .posting-blog textarea:focus{
     border: 1px solid rgba(119, 73, 248, 1);

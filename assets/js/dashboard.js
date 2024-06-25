@@ -26,14 +26,13 @@ const db = getDatabase();
 
 let ifUserLogin = () => {
   if (!localStorage.getItem("user-creds")) {
-    location.href = "../screen/login.html"
+    location.href = "../screen/login.html";
   } else {
     logoutButton.style.display = "block";
     userName.innerText = `${userInfo.firstName + " " + userInfo.lastName}`;
   }
 };
 window.addEventListener("load", ifUserLogin);
-
 
 // Function to fetch all posts
 async function getAllPosts() {
@@ -45,9 +44,7 @@ async function getAllPosts() {
     post.id = childSnapshot.key;
     console.log(post.id);
   });
-
 }
-
 
 let userCreds = JSON.parse(localStorage.getItem("user-creds"));
 let userInfo = JSON.parse(localStorage.getItem("user-info"));
@@ -61,7 +58,6 @@ let deleteButton = document.querySelector(".delBtn");
 const postTitleInput = document.getElementById("postTitle");
 const postTextInput = document.getElementById("postText");
 const publishButton = document.getElementById("pubBtn");
-
 
 const date = new Date();
 
@@ -89,27 +85,32 @@ function addPost(e) {
   const postTitle = postTitleInput.value.trim();
   const postText = postTextInput.value.trim();
 
-  if (postTitleInput.value === "" || postTextInput.value === "") {
-    swal("Please fill in all fields!", "", "error");
-    return;
-  }
+  if (postTitleInput.value.length >= 10 && postTextInput.value.length >= 50) {
+    const postData = {
+      postInfo: {
+        PostTitle: postTitleInput.value,
+        PostText: postTextInput.value,
+        PostDate: finalFormattedDate,
+      },
+    };
 
-  set(ref(db, `Posts/${userInfo.firstName}-${postIdInput}`), {
-    postInfo: {
-      PostTitle: postTitleInput.value,
-      PostText: postTextInput.value,
-      PostDate: finalFormattedDate,
-    },
-  })
-    .then(() => {
-      swal("Blog Posted", "", "success");
-      postTitleInput.value = "";
-      postTextInput.value = "";
-    })
-    .catch((error) => {
-      console.error(error.code);
-      console.error(error.message);
-    });
+    set(ref(db, `Posts/${userInfo.firstName}-${postIdInput}`), postData)
+      .then(() => {
+        swal("Blog Posted", "", "success");
+        postTitleInput.value = "";
+        postTextInput.value = "";
+      })
+      .catch((error) => {
+        console.error("Error code: ", error.code);
+        console.error("Error message: ", error.message);
+      });
+  } else {
+    swal(
+      "Error",
+      "The title must be at least 15 characters and the text must be at least 150 characters long.",
+      "error"
+    );
+  }
 }
 
 publishButton.addEventListener("click", addPost);
@@ -126,7 +127,7 @@ function createPostCard(post) {
 
   // Create author DP element
   const authorDp = document.createElement("img");
-  authorDp.src = "assets/images/writer-dp.png";
+  authorDp.src = "../assets/images/writer-dp.png";
   authorDp.className = "author-dp";
 
   // Create title and author info section
@@ -250,6 +251,5 @@ let signOut = () => {
   localStorage.removeItem("user-info");
   window.location.href = "login.html";
 };
-
 
 logoutButton.addEventListener("click", signOut);
