@@ -27,7 +27,7 @@ const date = new Date();
 
 let ifUserLogin = () => {
   if (!localStorage.getItem("user-creds")) {
-    window.location.href = "../screen/login.html"
+    window.location.href = "../screen/login.html";
     logoutButton.style.display = "none";
     loginButton.style.display = "block";
   } else {

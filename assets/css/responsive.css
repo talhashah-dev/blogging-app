@@ -1,87 +1,81 @@
-
-
 /* media query for mobile screen */
 
-@media screen and (min-width:200px) and (max-width:425px) {
+@media screen and (min-width: 200px) and (max-width: 425px) {
+  body {
+    font-size: 12px;
+  }
 
-    body{
-        font-size: 12px;
-    }
+  .container-fluid {
+    padding: 10px 20px;
+  }
 
-    .container-fluid{
-        padding: 10px 20px ;
-    }
+  .post-container * {
+    font-size: 12px;
+  }
 
-    .post-container  *{
-        font-size: 12px;
-    }
+  .post-title {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
 
-    .post-title{
-        width: 100%;
-        font-size: 16px;
-        margin-bottom: 2px;
-    }
+  .page-title {
+    padding: 10px 20px !important;
+  }
 
-    .page-title{
-        padding: 10px 20px !important;
-    }
+  .navbar {
+    width: 100%;
+  }
 
-    .navbar{
-        width: 100%;
-    }
+  .page-title {
+    width: 100%;
+  }
 
-    .page-title{
-        width: 100%;
-    }
+  .sidebar {
+    visibility: hidden;
+  }
 
-    .sidebar{
-        visibility: hidden;
-    }
+  .box {
+    width: 85%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 20px;
+  }
 
-    .box{
-        width: 85%;
-        height: auto;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        position: absolute;
-        margin: 0 auto;
-        margin-top: 120px;
-        margin-bottom: 20px;
-    }
+  .loader {
+    border: 14px solid #d4d4d4;
+    border-top: 14px solid #7749f8;
+    width: 100px;
+    height: 100px;
+  }
 
-    .loader {
-        border: 14px solid #d4d4d4; 
-        border-top: 14px solid #7749F8; 
-        width: 100px;
-        height: 100px;
-    }
-
-    .goTop{
-        display: none !important;
-    }
-   
-    
+  .goTop {
+    display: none !important;
+  }
 }
 
-@media screen and (min-width:426px) and (max-width:1024px) {
-    
-    .container-fluid {
-        padding: 15px 100px;
-    }
+@media screen and (min-width: 426px) and (max-width: 1024px) {
+  .container-fluid {
+    padding: 15px 100px;
+  }
 
-    .box{
-        width: 50%;
-        height: auto;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        position: absolute;
-        margin: 0 auto;
-        margin-top: 130px;
-    }
+  .box {
+    width: 50%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 130px;
+  }
 
-    .sidebar{
-        display: none !important;
-    }
+  .sidebar {
+    display: none !important;
+  }
 }

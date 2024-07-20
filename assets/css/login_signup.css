@@ -1,76 +1,73 @@
-
-
-
-.box{
-    width: 456px;
-    height: auto;
-    top: 180px;
-    left: 492px;
-    background-color: #fff;
-    position: absolute;
-    box-shadow: 0px 4px 10px 0px #0000001F;
-    padding: 50px;
-    border-radius: 5px;
- }
-
-#mainForm{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 18px;
+.box {
+  width: 456px;
+  height: auto;
+  top: 180px;
+  left: 492px;
+  background-color: #fff;
+  position: absolute;
+  box-shadow: 0px 4px 10px 0px #0000001f;
+  padding: 50px;
+  border-radius: 5px;
 }
 
-#mainForm input{
-    width: 240px;
-    height: 30px;
-    font-size: 16px;
-    appearance: none;
-    border: 1px solid rgba(128, 128, 128, 0.562);
-    border-radius: 5px;
-    outline: none;
-    padding: 9px 16px;
+#mainForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
 }
 
-#mainForm #showPass{
-    height: auto !important;
-    width: auto !important;
-    padding: 10px;
-    appearance: none;
-    margin-top: -50px;
-    margin-right: -210px;
-    font-size: 14px;
-    color: gray;
+#mainForm input {
+  width: 240px;
+  height: 30px;
+  font-size: 16px;
+  appearance: none;
+  border: 1px solid rgba(128, 128, 128, 0.562);
+  border-radius: 5px;
+  outline: none;
+  padding: 9px 16px;
 }
 
-form input:focus{
-    border-color: #7749F8;
-    -webkit-box-shadow:0 0 6px #7749F8;
-    box-shadow:0 0 6px #7749F8;
+#mainForm #showPass {
+  height: auto !important;
+  width: auto !important;
+  padding: 10px;
+  appearance: none;
+  margin-top: -50px;
+  margin-right: -210px;
+  font-size: 14px;
+  color: gray;
 }
 
-#mainForm a{
-    text-decoration: none;
-    color: #7749F8;
+form input:focus {
+  border-color: #7749f8;
+  -webkit-box-shadow: 0 0 6px #7749f8;
+  box-shadow: 0 0 6px #7749f8;
 }
 
-#mainForm a:hover{
-    text-decoration: underline;
+#mainForm a {
+  text-decoration: none;
+  color: #7749f8;
 }
 
-#mainForm button{
-    width: 75px;
-    height: 38px;
-    border-radius: 6px;
-    background-color: #7749F8;
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
+#mainForm a:hover {
+  text-decoration: underline;
 }
 
-#mainForm button#update_password{
-    width: auto!important;
+#mainForm button {
+  width: 75px;
+  height: 38px;
+  border-radius: 6px;
+  background-color: #7749f8;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#mainForm button#update_password {
+  width: auto !important;
 }

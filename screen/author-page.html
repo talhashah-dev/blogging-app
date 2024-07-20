@@ -1,128 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blogging App</title>
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/responsive.css" />
-    <link rel="stylesheet" href="../assets/css/author-page.css" />
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div id="center">
-      <div class="loader"></div>
-    </div>
 
-    <div id="page">
-      <!-- header start -->
-      <header>
-        <!-- navbar start -->
-        <nav class="navbar container-fluid">
-          <a href="../index.html"><h1>Blogging App</h1></a>
-          <div>
-            <a class="login_signup" href="dashboard.html">Dashboard</a>
-            <a class="login_signup" id="logoutBtn">Logout</a>
-            <a class="login_signup" id="loginBtn" href="login.html">Login</a>
-          </div>
-        </nav>
-        <!-- navbar end -->
-        <div class="container-fluid page-title">
-          <!-- greeting for users -->
-          <a href="../index.html"> &lt; Back to all Blogs</a>
-        </div>
-      </header>
-      <!-- header end -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogging App</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/css/author-page.css" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-      <!-- sidebar start -->
-      <div class="sidebar">
-        <div class="author-info">
-          <a href="mailto:elon@openai.com">elon@openai.com</a>
-          <a href="#" class="author-name">Elon Musk</a>
-        </div>
+<body>
+  <div id="center">
+    <div class="loader"></div>
+  </div>
+
+  <div id="page">
+    <!-- header start -->
+    <header>
+      <!-- navbar start -->
+      <nav class="navbar container-fluid">
+        <a href="../index.html">
+          <h1>Blogging App</h1>
+        </a>
         <div>
-          <img src="../assets/images/writer-dp.png" />
+          <a class="login_signup" href="dashboard.html">Dashboard</a>
+          <a class="login_signup" id="logoutBtn">Logout</a>
+          <a class="login_signup" id="loginBtn" href="login.html">Login</a>
         </div>
+      </nav>
+      <!-- navbar end -->
+      <div class="container-fluid page-title">
+        <!-- greeting for users -->
+        <a href="../index.html"> &lt; Back to all Blogs</a>
       </div>
-      <!-- sidebar end -->
+    </header>
+    <!-- header end -->
 
-      <!-- main start -->
-      <main class="container-fluid">
-        <h2>All from <span>Elon Musk</span></h2>
+    <!-- sidebar start -->
+    <div class="sidebar">
+      <div class="author-info">
+        <a href="mailto:elon@openai.com">elon@openai.com</a>
+        <a href="#" class="author-name">Elon Musk</a>
+      </div>
+      <div>
+        <img src="../assets/images/writer-dp.png" />
+      </div>
+    </div>
+    <!-- sidebar end -->
 
-        <section class="post-container">
-          <div class="post-card">
-            <div class="post-info">
-              <img
-                src="../assets/images/writer-dp.png"
-                alt="Elon Musk"
-                class="author-dp"
-              />
-              <div>
-                <h3 class="post-title">Introducing Whisper</h3>
-                <div class="post-author">
-                  <span>Elon Musk</span> - <span>Aug 17th, 2023</span>
-                </div>
+    <!-- main start -->
+    <main class="container-fluid">
+      <h2>All from <span>Elon Musk</span></h2>
+
+      <section class="post-container">
+        <div class="post-card">
+          <div class="post-info">
+            <img src="../assets/images/writer-dp.png" alt="Elon Musk" class="author-dp" />
+            <div>
+              <h3 class="post-title">Introducing Whisper</h3>
+              <div class="post-author">
+                <span>Elon Musk</span> - <span>Aug 17th, 2023</span>
               </div>
             </div>
-
-            <div class="post-content">
-              Whisper is an automatic speech recognition (ASR) system trained on
-              680,000 hours of multilingual and multitask supervised data
-              collected from the web. We show that the use of such a large and
-              diverse dataset leads to improved robustness to accents,
-              background noise and technical language. Moreover, it enables
-              transcription in multiple languages, as well as translation from
-              those languages into English. We are open-sourcing models and
-              inference code to serve as a foundation for building useful
-              applications and for further research on robust speech processing.
-            </div>
           </div>
-        </section>
-      </main>
-    </div>
-    <!-- main end -->
 
-    <script src="../assets/js/main.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-      let userCreds = JSON.parse(localStorage.getItem("user-creds"));
-      let userInfo = JSON.parse(localStorage.getItem("user-info"));
+          <div class="post-content">
+            Whisper is an automatic speech recognition (ASR) system trained on
+            680,000 hours of multilingual and multitask supervised data
+            collected from the web. We show that the use of such a large and
+            diverse dataset leads to improved robustness to accents,
+            background noise and technical language. Moreover, it enables
+            transcription in multiple languages, as well as translation from
+            those languages into English. We are open-sourcing models and
+            inference code to serve as a foundation for building useful
+            applications and for further research on robust speech processing.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- main end -->
 
-      let logoutButton = document.getElementById("logoutBtn");
-      let loginButton = document.getElementById("loginBtn");
+  <script src="../assets/js/main.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    let userCreds = JSON.parse(localStorage.getItem("user-creds"));
+    let userInfo = JSON.parse(localStorage.getItem("user-info"));
 
-      let signOut = () => {
-        localStorage.removeItem("user-creds");
-        localStorage.removeItem("user-info");
-        window.location.href = "index.html";
-      };
+    let logoutButton = document.getElementById("logoutBtn");
+    let loginButton = document.getElementById("loginBtn");
 
-      let ifUserLogin = () => {
-        if (!localStorage.getItem("user-creds")) {
-          if (logoutButton) {
-            logoutButton.style.display = "none";
-            loginButton.style.display = "block";
-          }
-        } else {
-          if (loginButton) {
-            loginButton.style.display = "none";
-            logoutButton.style.display = "block";
-          }
+    let signOut = () => {
+      localStorage.removeItem("user-creds");
+      localStorage.removeItem("user-info");
+      window.location.href = "index.html";
+    };
+
+    let ifUserLogin = () => {
+      if (!localStorage.getItem("user-creds")) {
+        if (logoutButton) {
+          logoutButton.style.display = "none";
+          loginButton.style.display = "block";
         }
-      };
-
-      window.addEventListener("load", ifUserLogin);
-      if (logoutButton) {
-        logoutButton.addEventListener("click", signOut);
+      } else {
+        if (loginButton) {
+          loginButton.style.display = "none";
+          logoutButton.style.display = "block";
+        }
       }
-    </script>
-  </body>
+    };
+
+    window.addEventListener("load", ifUserLogin);
+    if (logoutButton) {
+      logoutButton.addEventListener("click", signOut);
+    }
+  </script>
+</body>
+
 </html>
